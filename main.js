@@ -1,95 +1,88 @@
-/* TASK1 */
+// TASK1
 
-var a = 15;
-var b = -2;
-var c = 22;
-var d = 0;
-var e = 13;
+var dataOld = [34, true, "Peter", 1992];
+var dataNew = [];
+var i = 0;
 
-if (a>b && a>c && a>d && a>e) {
-	console.log("Largest number is " + a )
+while (i < dataOld.length) {
+	dataNew[i] = dataOld[i];
+	i++
+}
+console.log(dataNew);
+
+//TASK2
+
+for (var i = dataOld.length -1; i >= 0; i--) {
+	dataNew[dataOld.length -1 -i] = dataOld[i];
+}
+	console.log(dataNew);
+
+//TASK3
+
+var dataNew = [12, "Jack"];
+
+for (var i = 0; i < dataOld.length; i++) {
+	dataNew[dataNew.length] = dataOld[i];
+}
+ 	console.log(dataNew);
+
+//TASK4
+
+var a = [12, 56, 32, 44, 69];
+var b = [88, 7, 13];
+var newArr = [];
+
+for (var i = 0; i < a.length; i++) {
+	newArr[i] = a[i];
+}
+for (var j = 0; j <= a.length - b.length; j++) {
+	newArr[newArr.length] = b[j];
+}
+	console.log(newArr);
+
+//TASK5
+
+var a = [12, 56, 32, 44];
+var newArr = [];
+
+for (var i = 0; i < a.length; i++) {
+	newArr[i+i] = a[i];
+}
+for (var j = 0; j < b.length; j++) {
+			newArr[j + j + 1] = b[j];	
+}
+	console.log(newArr); 
+
+//TASK6
+
+var a = "*";
+
+for (var i = 0; i < 6; i++) {
+	console.log(a);
+	a += "*"; 
 }
 
-else if (b>a && b>c && b>d && b>e) {
-	console.log("Largest number is " + b)
+//TASK7
+
+var result = "";
+
+for (var i = 0; i < 6; i++) {
+  for (var j = 0; j < 10; j++) {
+    if (i > 0 && i < 5 && j > 0 && j < 9) {
+      result += " ";
+    } else {
+      result += "*";
+    }
+  }
+  result += "\n";
 }
-
-else if (c>a && c>b && c>d && c>e) {
-	console.log("Largest number is " + c)
-}
-
-else if (d>a && d>b && d>c && d>e) {
-	console.log("Largest number is " + d)
-}
-
-else if (e>a && e>b && e>c && e>d) {
-	console.log("Largest number is " + e)
-}
-
-else {
-	console.log ("Largest number is unknow")
-}
-
-/* TASK2 */
-
-var a = 3;
-var b = -7;
-var c = 2;
-
-if (a<0) {
-	console.log (a)
-}
-
-else if (b<0) {
-	console.log (b)
-}
-
-else if (c<0) {
-	console.log (c)
-}
-
-else {
-	console.log ("Number is unknow")
-}
+console.log(result);
 
 
-/* TASK3 */
+	 	
+	
+	
 
-var name = "Hello world";
+	
 
-switch(name) {
-	case "Hello world":
-		console.log(name)
-	case "Hello world":
-		console.log("Ciao Mondo")
-	case "Hello world":
-		console.log("Hola Mondo")
-	case "Hello world":
-		console.log("Hallo Welt")
-	case "Hello world":
-		console.log("Sawubona Mhlaba")
-}
-
-/* TASK4 */
-/* TERNARY */
-
-var userAge = 35;
-
-userAge >= 28 ? console.log(true) : console.log(false);
-
-/* IF/ELSE */
-
-var userAge = true;
-
-if (userAge === false) {
-	console.log("User is less than 28 years old")
-}
-
-if (userAge === true) {
-	console.log("User is older than 28")
-}
-
-else {
-	console.log("User age is unknow")
-}
 
