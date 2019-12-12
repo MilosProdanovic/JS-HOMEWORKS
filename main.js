@@ -1,93 +1,58 @@
 //TASK1
 
-var reverseArr = [];
-
-function arr(someArr){
-	for (var i = 0; i < someArr.length; i++) {
-		reverseArr[i] = someArr[someArr.length - 1 - i];
+function firstFun(someArr){
+	 secondFun(someArr);
+	 var lowest = someArr[0];
+	 for (var i = 0; i < someArr.length; i++){
+		if (someArr[i] < lowest) {
+			lowest = someArr[i]
+	 	}
 	}
-}	
-arr([55, 45, 35, 25]);
+	 return lowest;
+}
+	
+function secondFun(someArr){
+	var highest = 0;
+	for (var i = 0; i < someArr.length; i++){
+		if (someArr[i] > highest){
+			highest = someArr[i]
+		}
+	}
+	return highest;
+}
 
-	console.log(reverseArr);
+function thirdFun(someArr){
+	var first = firstFun(someArr);
+	var second = secondFun(someArr);
+	console.log (first * second);
+	}
+
+thirdFun([10, 11, 21, 3, 1]);
 
 //TASK2
 
-function anyType(someTypes) {
-	console.log(typeof arguments[0], typeof arguments[1], typeof arguments[2], typeof arguments[3]);
+function funOne(some){
+	var sameNum = [];
+	for (var i = 0; i < some.length; i++){
+		for(var j = i + 1; j < some.length; j++){
+			if (some[i] === some[j]){
+			sameNum[i] = some[i]}
+		}
+	}return sameNum;
+}
+function arr(some){
+	var delBiggest = funOne(some);
+	var biggest = [0];
+	for(var i = 0; i < delBiggest.length; i++){
+		if(delBiggest[i] > biggest){
+		biggest = delBiggest[i];
+		}
+	}
+	for(var i = 0; i < delBiggest.length; i++){
+		if(delBiggest[i] === biggest){
+			delete delBiggest[i];
+		}
+	}console.log(delBiggest);
 }
 
-anyType(12, "Ben", true, 21);
-
-//TASK3
-
-var longestName = [];
-
-function names (someNames) {
-	for (var i = 0; i < someNames.length; i++) {
-		if (longestName < someNames[i].length){
-			longestName = someNames[i].length;
-		}
-	}
-}
-names(["Laki", "Mirko", "Milutin", "Aksentije", "Maksimilijan", "Pantelija"]);
-
-	console.log(longestName);
-	
-//TASK4
-
-function nums(someNums){
-	var largest = [];
-	for (var i = 0; i < someNums.length; i++) {
-	    if (someNums[i] > largest) {
-	        largest = someNums[i];
-		}
-	}
-	var smallest = largest;
-	for (var i = 0; i < someNums.length; i++) {
-		if (someNums[i] < smallest) {
-			smallest = someNums[i];
-		}
-	}
-	var secondLargest = [];
-	for (var i = 0; i < someNums.length; i++) {
-		if (someNums[i] < largest && someNums[i] > secondLargest){
-			secondLargest = someNums[i];
-		}
-	}
-	var secondSmallestArr = [];
-	for (var i = 0; i < someNums.length; i++) {
-		if (someNums[i] > smallest && someNums[i] < secondLargest){
-			secondSmallestArr[i - 1] = someNums[i];
-		}
-	}
-	var secondSmallest = secondSmallestArr[0];
-  	for (var i = 0; i < secondSmallestArr.length; i++) {
-       	if (secondSmallestArr[i] <= secondSmallest) {
-         	secondSmallest = secondSmallestArr[i];
-       }
-   }
-  console.log(secondSmallest,secondLargest);
-}	  
-nums([12, 13, 14, 15, 16, 17]);
-
-//TASK5
-
-var firstFun = function(someNums){
-	secondFun(someNums);
-	}
-
-var secondFun = function(){
-	var biggerNums = [];
-	for (i = 0; i < arguments[0][0].length; i++)
-		if (arguments[0][0][i] > arguments[0][1]) {
-			biggerNums[i] = arguments[0][0][i];
-		}
-		console.log(biggerNums);
-	}
-		
-firstFun([[23, 45, 11, 32, 8, 7], 10]);
-
-
-
-
+arr([15, 35, 46, 23, 15, 17, 23, 24, 35, 12, 72, 64, 35, 22, 64]);
