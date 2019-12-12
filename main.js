@@ -1,88 +1,93 @@
-// TASK1
+//TASK1
 
-var dataOld = [34, true, "Peter", 1992];
-var dataNew = [];
-var i = 0;
+var reverseArr = [];
 
-while (i < dataOld.length) {
-	dataNew[i] = dataOld[i];
-	i++
-}
-console.log(dataNew);
+function arr(someArr){
+	for (var i = 0; i < someArr.length; i++) {
+		reverseArr[i] = someArr[someArr.length - 1 - i];
+	}
+}	
+arr([55, 45, 35, 25]);
+
+	console.log(reverseArr);
 
 //TASK2
 
-for (var i = dataOld.length -1; i >= 0; i--) {
-	dataNew[dataOld.length -1 -i] = dataOld[i];
+function anyType(someTypes) {
+	console.log(typeof arguments[0], typeof arguments[1], typeof arguments[2], typeof arguments[3]);
 }
-	console.log(dataNew);
+
+anyType(12, "Ben", true, 21);
 
 //TASK3
 
-var dataNew = [12, "Jack"];
+var longestName = [];
 
-for (var i = 0; i < dataOld.length; i++) {
-	dataNew[dataNew.length] = dataOld[i];
+function names (someNames) {
+	for (var i = 0; i < someNames.length; i++) {
+		if (longestName < someNames[i].length){
+			longestName = someNames[i].length;
+		}
+	}
 }
- 	console.log(dataNew);
+names(["Laki", "Mirko", "Milutin", "Aksentije", "Maksimilijan", "Pantelija"]);
 
+	console.log(longestName);
+	
 //TASK4
 
-var a = [12, 56, 32, 44, 69];
-var b = [88, 7, 13];
-var newArr = [];
-
-for (var i = 0; i < a.length; i++) {
-	newArr[i] = a[i];
-}
-for (var j = 0; j <= a.length - b.length; j++) {
-	newArr[newArr.length] = b[j];
-}
-	console.log(newArr);
+function nums(someNums){
+	var largest = [];
+	for (var i = 0; i < someNums.length; i++) {
+	    if (someNums[i] > largest) {
+	        largest = someNums[i];
+		}
+	}
+	var smallest = largest;
+	for (var i = 0; i < someNums.length; i++) {
+		if (someNums[i] < smallest) {
+			smallest = someNums[i];
+		}
+	}
+	var secondLargest = [];
+	for (var i = 0; i < someNums.length; i++) {
+		if (someNums[i] < largest && someNums[i] > secondLargest){
+			secondLargest = someNums[i];
+		}
+	}
+	var secondSmallestArr = [];
+	for (var i = 0; i < someNums.length; i++) {
+		if (someNums[i] > smallest && someNums[i] < secondLargest){
+			secondSmallestArr[i - 1] = someNums[i];
+		}
+	}
+	var secondSmallest = secondSmallestArr[0];
+  	for (var i = 0; i < secondSmallestArr.length; i++) {
+       	if (secondSmallestArr[i] <= secondSmallest) {
+         	secondSmallest = secondSmallestArr[i];
+       }
+   }
+  console.log(secondSmallest,secondLargest);
+}	  
+nums([12, 13, 14, 15, 16, 17]);
 
 //TASK5
 
-var a = [12, 56, 32, 44];
-var newArr = [];
+var firstFun = function(someNums){
+	secondFun(someNums);
+	}
 
-for (var i = 0; i < a.length; i++) {
-	newArr[i+i] = a[i];
-}
-for (var j = 0; j < b.length; j++) {
-			newArr[j + j + 1] = b[j];	
-}
-	console.log(newArr); 
-
-//TASK6
-
-var a = "*";
-
-for (var i = 0; i < 6; i++) {
-	console.log(a);
-	a += "*"; 
-}
-
-//TASK7
-
-var result = "";
-
-for (var i = 0; i < 6; i++) {
-  for (var j = 0; j < 10; j++) {
-    if (i > 0 && i < 5 && j > 0 && j < 9) {
-      result += " ";
-    } else {
-      result += "*";
-    }
-  }
-  result += "\n";
-}
-console.log(result);
+var secondFun = function(){
+	var biggerNums = [];
+	for (i = 0; i < arguments[0][0].length; i++)
+		if (arguments[0][0][i] > arguments[0][1]) {
+			biggerNums[i] = arguments[0][0][i];
+		}
+		console.log(biggerNums);
+	}
+		
+firstFun([[23, 45, 11, 32, 8, 7], 10]);
 
 
-	 	
-	
-	
-
-	
 
 
