@@ -1,89 +1,145 @@
 //TASK1
 
-function Student(name, lastName, age, averageGrade){
-	this.name = name;
-	this.lastName = lastName;
-	this.age = age;
-	this.averageGrade = averageGrade;
-}
+var str = "Lorem ipsum dolor sit amet";
 
-var nikola = new Student("Nikola", "Nikolic", 23, 8.56);
-var marko = new Student("Marko", "Markovic", 22, 8.87);
-var mirko = new Student("Mirko","Mirkovic", 26, 7.66);
-var petar = new Student("Petar", "Petrovic", 24, 9.33);
+function lowCase(some){
+	var lower = some.toLowerCase();
+	console.log(lower);
+	}
 
-console.log(nikola, marko, mirko, petar);
+lowCase(str);
 
 //TASK2
 
-function FootballPlayer(name, lastName, age, position, number, goalScored, yellowCards){
-	this.name = name;
-	this.lastName = lastName;
-	this.age = age;
-	this.position = position;
-	this.number = number;
-	this.goalScored = goalScored;
-	this.yellowCards = yellowCards;
+var strOne = "Lorem ipsum dolor sit amet";
+
+function someWord(word){
+	var sit = word.includes("sit");
+	if(sit === true){
+		console.log("result is " + sit)
+	}else if(sit === false){
+		console.log("result is " + sit);
+	}
 }
 
-var chiellini = new FootballPlayer("Giorgio", "Chiellini", 35, "defender", 3, 1, 1);
-var deLigt = new FootballPlayer("Matthijs", "de Ligt", 20, "defender", 4, 1, 3);
-var pjanic = new FootballPlayer("Miralem", "Pjanic", 29, "midfielder", 5, 3, 7);
-var dybala = new FootballPlayer("Paulo", "Dybala", 26, "forward", 10, 9, 3);
-var ronaldo = new FootballPlayer("Cristiano", "Ronaldo", 34, "forward", 7, 16, 0);
+someWord(strOne);
 
-console.log(chiellini, deLigt, pjanic, dybala, ronaldo);
+//TASK3
 
-//TAKS3
+var strTwo = "Lorem ipsum dolor sit amet";
 
-function FootballPlayerData(member){
-	this.name = member[0];
-	this.lastName = member[1];
-	this.age = member[2];
-	this.position = member[3];
-	this.number = member[4];
-	this.goalScored = member[5];
-	this.yellowCards = member[6];
+function index(someStr){
+	var num = someStr.indexOf(someStr[someStr.length - 1], someStr.length - 1 );
+	return num;
 }
-
-var players = [["Giorgio", "Chiellini", 35, "defender", 3, 1, 1],
-["Matthijs", "deLigt", 20, "defender", 4, 1, 3],
-["Miralem", "Pjanic", 29, "midfielder", 5, 3, 7],
-["Paulo", "Dybala", 26, "forward", 10, 9, 3],
-["Cristiano", "Ronaldo", 34, "forward", 7, 16, 0]];
-
-for(var i = 0; i < players.length; i++){
-	this[players[i][1].toLowerCase()] = new FootballPlayerData(players[i]);
-}
-
-console.log(chiellini, deligt, pjanic, dybala, ronaldo);
+console.log(index(strTwo));
 
 //TASK4
 
-function ConFun(firstNum, secondNum, calculate){
-	this.firstNum = firstNum;
-	this.secondNum = secondNum;
-	this.calculate = calculate;
-}
-	var multiPly = new ConFun(5, 8,
-	function calculate(){
-		var result = this.firstNum * this.secondNum;
-		return result;
-	})
-	var divid = new ConFun(78, 3,
-		function calculate(){
-		var result = this.firstNum / this.secondNum;
-		return result;
-	});
-	var add = new ConFun(55, 95,
-		function calculate(){
-		var result = this.firstNum + this.secondNum;
-		return result;
-	});
-	var subTrack = new ConFun(12, 15,
-		function calculate(){
-		var result = this.firstNum - this.secondNum;
-		return result;
-	});
+var strThree = "Lorem ipsum dolor sit amet";
 
-	console.log(multiPly.calculate(), divid.calculate(), add.calculate(), subTrack.calculate());
+function splString(spl){
+	var three = spl.split(" ", 3);
+	return three;
+}
+
+console.log(splString(strThree));
+
+//TASK5
+
+var actor = "Piter is an actor";
+
+function piter(someActor){
+	var pit = "";
+	var pitOne = someActor.substring(0, 8);
+	var pitTwo = someActor.substring(9, someActor.length);
+	pitOne = pitOne.replace("e", "o");
+	pitTwo = pitTwo.replace("o", "e");
+	pit = pit.concat(pitOne," ", pitTwo);
+	return pit;
+}
+
+console.log(piter(actor));
+
+//TASK6
+
+var someData = [34, 23, 14, 56, 23, 44, 65];
+
+function arr(nums){
+	var rem = [];
+	 var remOne = nums.slice(0,3);
+	 var remTwo = nums.slice(4, nums.length);
+	 rem = rem.concat(remOne, remTwo);
+	 return rem;
+}
+
+console.log(arr(someData));
+
+//TASK7
+
+var someDataOne = [34, 23, 14, 56, 23, 44, 65];
+
+function revArr(arr){
+	arr.shift();
+	var arrOneTwo = [];
+	var arrOne = arr.slice(0,arr.length / 2);
+	var arrTwo = arr.slice(arr.length / 2, arr.length);
+	arrTwo = arrTwo.reverse();
+	arrOneTwo = arrOneTwo.concat(arrOne,arrTwo);
+	return arrOneTwo;
+}
+
+console.log(revArr(someDataOne));
+
+//TASK8
+
+var someDataTwo = [334, 233, 212, 199, 154, 122];
+
+function reduct(something){
+	var newOne = [];
+	for(var i = 0; i < something.length; i++){
+		if(i === 0){
+		newOne[newOne.length] = something[i];
+		}if(i > 0){
+		newOne[newOne.length] = something[i] - something[i -1];
+		}
+	}return newOne;		
+}
+
+console.log(reduct(someDataTwo));
+
+//TASK9
+
+var students = [
+  {
+     name: "Jim",
+     avgGrade: 8.5556
+  },
+  {
+     name: "Mike",
+     avgGrade: 8.5492
+  },
+  {
+     name: "Anna",
+     avgGrade: 8.9322
+  },
+  {
+     name: "Jack",
+     avgGrade: 8.6111
+  }
+]
+
+function grade(obj){
+	newGrade = [];
+	for(var i = 0; i < obj.length; i++){
+		if(obj[i].avgGrade > 8.5){
+			newGrade[newGrade.length] = obj[i];
+		}
+	}
+	for(var j = 0; j < newGrade.length; j++){
+		newGrade[j].avgGrade = newGrade[j].avgGrade.toFixed(2);
+	}
+	return newGrade;
+}
+
+console.log(grade(students));
