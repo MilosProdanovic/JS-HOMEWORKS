@@ -1,165 +1,89 @@
 //TASK1
 
-var arr = [1, 2, 3];
-var value = 1;
-function loopThrough(){
-	for(var i = 0; i < arr.length; i++){	
-		for(var j = 0; j < arr.length; j++){	
-			console.log("At position " + i + ", subposition " + j + ", value is " + value);
-				value++;	
-		}
-	}
+function Student(name, lastName, age, averageGrade){
+	this.name = name;
+	this.lastName = lastName;
+	this.age = age;
+	this.averageGrade = averageGrade;
 }
 
-loopThrough();
+var nikola = new Student("Nikola", "Nikolic", 23, 8.56);
+var marko = new Student("Marko", "Markovic", 22, 8.87);
+var mirko = new Student("Mirko","Mirkovic", 26, 7.66);
+var petar = new Student("Petar", "Petrovic", 24, 9.33);
+
+console.log(nikola, marko, mirko, petar);
 
 //TASK2
 
-var person = function(obj) {
-	console.log(obj.name + " " + obj.age);
-};
-
-var niz = [{
-	name : "Nikola",
-	age : 29
-},
-{
-	name : "Milos",
-	age : 35
-},
-{
-	name : "Petar",
-	age : 30
-}];
-
-function loop() {
-	for(var i = 0; i < niz.length; i++) {
-		person(niz[i]);
-	}
+function FootballPlayer(name, lastName, age, position, number, goalScored, yellowCards){
+	this.name = name;
+	this.lastName = lastName;
+	this.age = age;
+	this.position = position;
+	this.number = number;
+	this.goalScored = goalScored;
+	this.yellowCards = yellowCards;
 }
 
-loop();
+var chiellini = new FootballPlayer("Giorgio", "Chiellini", 35, "defender", 3, 1, 1);
+var deLigt = new FootballPlayer("Matthijs", "de Ligt", 20, "defender", 4, 1, 3);
+var pjanic = new FootballPlayer("Miralem", "Pjanic", 29, "midfielder", 5, 3, 7);
+var dybala = new FootballPlayer("Paulo", "Dybala", 26, "forward", 10, 9, 3);
+var ronaldo = new FootballPlayer("Cristiano", "Ronaldo", 34, "forward", 7, 16, 0);
 
-//TASK3
+console.log(chiellini, deLigt, pjanic, dybala, ronaldo);
 
-var someData = {
-	name: "Peter",
-	lastName: "Dinklage",
-	status: "married"
-};
+//TAKS3
 
-function repack(object){
-	var noviObj = {};
-	noviObj.name = object.name;
-	noviObj.lastName = object.lastName;
-	noviObj.status = object.status;
-	console.log(noviObj);
-};
+function FootballPlayerData(member){
+	this.name = member[0];
+	this.lastName = member[1];
+	this.age = member[2];
+	this.position = member[3];
+	this.number = member[4];
+	this.goalScored = member[5];
+	this.yellowCards = member[6];
+}
 
-repack(someData);
+var players = [["Giorgio", "Chiellini", 35, "defender", 3, 1, 1],
+["Matthijs", "deLigt", 20, "defender", 4, 1, 3],
+["Miralem", "Pjanic", 29, "midfielder", 5, 3, 7],
+["Paulo", "Dybala", 26, "forward", 10, 9, 3],
+["Cristiano", "Ronaldo", 34, "forward", 7, 16, 0]];
+
+for(var i = 0; i < players.length; i++){
+	this[players[i][1].toLowerCase()] = new FootballPlayerData(players[i]);
+}
+
+console.log(chiellini, deligt, pjanic, dybala, ronaldo);
 
 //TASK4
 
-var someData = [13, 45, 56, [32, 11], 27, [55, 92]];
-
-var newData = [];
-
-function repackData(arr){
-	for(var i = 0; i < someData.length; i++){
-			newData[newData.length] = someData[i];
-		if(someData[i].length > 1){
-			newData[newData.length] = someData[i][0];
-		}if(someData[i].length > 1){
-			newData[newData.length] = someData[i][1];
-		}
-	}
-	for(var j = 0; j < newData.length; j++){
-		if(newData[j].length > 1){
-			delete newData[j];
-		}
-	}console.log(newData);
+function ConFun(firstNum, secondNum, calculate){
+	this.firstNum = firstNum;
+	this.secondNum = secondNum;
+	this.calculate = calculate;
 }
+	var multiPly = new ConFun(5, 8,
+	function calculate(){
+		var result = this.firstNum * this.secondNum;
+		return result;
+	})
+	var divid = new ConFun(78, 3,
+		function calculate(){
+		var result = this.firstNum / this.secondNum;
+		return result;
+	});
+	var add = new ConFun(55, 95,
+		function calculate(){
+		var result = this.firstNum + this.secondNum;
+		return result;
+	});
+	var subTrack = new ConFun(12, 15,
+		function calculate(){
+		var result = this.firstNum - this.secondNum;
+		return result;
+	});
 
-repackData();
-
-//TASK5
-
-var someData = [13, 45, 56, [32, 11], 27, [55, 92]];
-
-function anotherFun(arrOne){
-	var sum = [];
-	for(var i = 0; i < arrOne.length; i++){
-		sum[sum.length] = arrOne[i][0];
-		sum[sum.length] = arrOne[i][1];
-		console.log(sum);
-	}return sum;
-}
-
-
-function recArr(someArr){
-	var subArrOne = [];
-	var subArr = anotherFun(subArrOne);
-	for(var i = 0; i < someArr.length; i++){
-		if(someArr[i].length > 1){
-			subArrOne[subArrOne.length] = someArr[i];	
-		}
-	}console.log(subArrOne)
-}
-
-recArr(someData);
-
-//TASK6
-
-var someData = {
-	name: "Peter",
-	lastName: "Dinklage",
-	status: "married"
-};
-
-function setName(setProp){
-	this.name = setProp.name;
-	var set = setProp;
-	return set;
-}
-
-function removeName(remProp){
-	 delete remProp.name;
-	 var rem = remProp;
-	 return rem;
-}
-
-function checkName(nameData){
-		if(this.name != nameData.name){
-			var addName = setName(nameData);
-			console.log(addName)
-		}
-		if(this.name === nameData.name){
-			var delName = removeName(someData);
-			console.log(delName)
-		}
-	}
-
-checkName(someData);
-
-//TASK7
-
-var someDataOne = {
-	name: "Peter",
-	lastName: "Dinklage",
-	status: "married",
-	nameCheck: function(something){
-		if(this.name === something.name){
-			function del(someObj){
-				delete something.name;
-				console.log(someDataOne);
-				function add(obj){
-					someDataOne.name = obj;
-					console.log(someDataOne);
-				}add("Mike");
-			}del(something);
-		}
-	}		
-}
-
-someDataOne.nameCheck(someDataOne);
-
+	console.log(multiPly.calculate(), divid.calculate(), add.calculate(), subTrack.calculate());
