@@ -1,145 +1,110 @@
-//TASK1
+// // TASK1
 
-var str = "Lorem ipsum dolor sit amet";
+// function aleRt(){
+// 	if(navigator.onLine === true){
+// 		alert("Browser is online");
+// 	}if(navigator.onLine === false){
+// 		alert("browser is not online")
+// 	}
+// }
 
-function lowCase(some){
-	var lower = some.toLowerCase();
-	console.log(lower);
+// aleRt();
+
+// // TASK2
+
+// function reLoad(){
+// 	location.reload();
+// }
+
+// reLoad();
+
+// // TASK3
+
+// function redirect(){
+// 	location.href = "http://www.google.com";
+// }
+//  function goBack(){
+//  	history.back()
+//  }
+
+// setTimeout(redirect, 3000);
+// setTimeout(goBack, 3000);
+
+// // TASK4
+
+// var i = 0;
+
+// function incre(){
+// 	i++;
+// 	console.log(i);
+// 	if(i === 15){
+// 		clearInterval(int);
+// 	}
+// }
+
+// var int = setInterval(incre, 1000);
+
+// //TASK5
+
+// function ranDom(){
+// 	 var i = Math.round(Math.random() * 10);
+// 	 return i;
+// }
+
+// console.log(ranDom());
+
+// TASK6
+
+var arrObj = [{
+	name: "Jo",
+	age: 33,
+	status: "inactive"
+},
+{
+	name: "Jack",
+	age: 32,
+	status: "inactive"
+},
+{
+	name: "William",
+	age: 31,
+	status: "inactive"
+},
+{
+	name: "Averell",
+	age: 30,
+	status: "inactive"
+},
+{
+	name: "Lucky",
+	age: 34,
+	status: "inactive"
+}];
+
+var name = prompt("Enter your name");
+
+function check(arr){
+	return arr.name !== name;
+}
+
+function print(obj){
+	var dataName = arrObj.every(check);
+	if(dataName === true){
+		console.log("User with name " + name + " doesn't exist.");
 	}
-
-lowCase(str);
-
-//TASK2
-
-var strOne = "Lorem ipsum dolor sit amet";
-
-function someWord(word){
-	var sit = word.includes("sit");
-	if(sit === true){
-		console.log("result is " + sit)
-	}else if(sit === false){
-		console.log("result is " + sit);
+	for(var i = 0; i < obj.length;i++){
+		if(name === obj[i].name){
+			var newUser = obj[i];
+			newUser.status = "active";
+			localStorage.setItem("loggedInUser", "active");
+		}	
 	}
+};
+
+print(arrObj);
+
+function clearData(){
+	localStorage.removeItem("loggedInUser");
+	console.log("User is logged out")
 }
-
-someWord(strOne);
-
-//TASK3
-
-var strTwo = "Lorem ipsum dolor sit amet";
-
-function index(someStr){
-	var num = someStr.indexOf(someStr[someStr.length - 1], someStr.length - 1 );
-	return num;
-}
-console.log(index(strTwo));
-
-//TASK4
-
-var strThree = "Lorem ipsum dolor sit amet";
-
-function splString(spl){
-	var three = spl.split(" ", 3);
-	return three;
-}
-
-console.log(splString(strThree));
-
-//TASK5
-
-var actor = "Piter is an actor";
-
-function piter(someActor){
-	var pit = "";
-	var pitOne = someActor.substring(0, 8);
-	var pitTwo = someActor.substring(9, someActor.length);
-	pitOne = pitOne.replace("e", "o");
-	pitTwo = pitTwo.replace("o", "e");
-	pit = pit.concat(pitOne," ", pitTwo);
-	return pit;
-}
-
-console.log(piter(actor));
-
-//TASK6
-
-var someData = [34, 23, 14, 56, 23, 44, 65];
-
-function arr(nums){
-	var rem = [];
-	 var remOne = nums.slice(0,3);
-	 var remTwo = nums.slice(4, nums.length);
-	 rem = rem.concat(remOne, remTwo);
-	 return rem;
-}
-
-console.log(arr(someData));
-
-//TASK7
-
-var someDataOne = [34, 23, 14, 56, 23, 44, 65];
-
-function revArr(arr){
-	arr.shift();
-	var arrOneTwo = [];
-	var arrOne = arr.slice(0,arr.length / 2);
-	var arrTwo = arr.slice(arr.length / 2, arr.length);
-	arrTwo = arrTwo.reverse();
-	arrOneTwo = arrOneTwo.concat(arrOne,arrTwo);
-	return arrOneTwo;
-}
-
-console.log(revArr(someDataOne));
-
-//TASK8
-
-var someDataTwo = [334, 233, 212, 199, 154, 122];
-
-function reduct(something){
-	var newOne = [];
-	for(var i = 0; i < something.length; i++){
-		if(i === 0){
-		newOne[newOne.length] = something[i];
-		}if(i > 0){
-		newOne[newOne.length] = something[i] - something[i -1];
-		}
-	}return newOne;		
-}
-
-console.log(reduct(someDataTwo));
-
-//TASK9
-
-var students = [
-  {
-     name: "Jim",
-     avgGrade: 8.5556
-  },
-  {
-     name: "Mike",
-     avgGrade: 8.5492
-  },
-  {
-     name: "Anna",
-     avgGrade: 8.9322
-  },
-  {
-     name: "Jack",
-     avgGrade: 8.6111
-  }
-]
-
-function grade(obj){
-	newGrade = [];
-	for(var i = 0; i < obj.length; i++){
-		if(obj[i].avgGrade > 8.5){
-			newGrade[newGrade.length] = obj[i];
-		}
-	}
-	for(var j = 0; j < newGrade.length; j++){
-		newGrade[j].avgGrade = newGrade[j].avgGrade.toFixed(2);
-	}
-	return newGrade;
-}
-
-console.log(grade(students));
+setTimeout(clearData, 60000);
