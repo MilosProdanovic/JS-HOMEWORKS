@@ -1,101 +1,35 @@
-var moviesArr = [{
-	img: "fight-club.jpg",
-	name: "Fight club"
-},
-{
-	img: "forrest-gump.jpg",
-	name: "Forrest Gump"
-},
-{
-	img: "goodfellas.jpg",
-	name: "Goodfellas"
-},
-{
-	img: "inception.jpg",
-	name: "Inception"
-},
-{
-	img: "one-flew-over-the-cockoos-nest.jpg",
-	name: "One flew over the cockoo's nest"
-},
-{
-	img: "pulp-fiction.jpg",
-	name: "Pulp fiction"
-},
-{
-	img: "schindlers-list.jpg",
-	name: "Schindler's list"
-},
-{
-	img: "the-dark-knight.jpg",
-	name: "The dirk knight"
-},
-{
-	img: "the-godfather.jpg",
-	name: "The godfather"
-},
-{
-	img: "the-god-the-bad-and-the-ugly.jpg",
-	name: "The god, the bad and the ugly"
-},{
-	img: "the-shawshank-redemption.jpg",
-	name: "The Shawshank redemption"
-},
-{
-	img: "twelve-angry-men.jpg",
-	name: "Twelve angry men"
-}];
 
-function addMovies(){
-	moviesArr.forEach(function(art){
-		var movies = document.querySelector('.movies');
-		movies.appendChild(createMovies(art));
-	});
-};
+var breed = document.getElementById('first').value;
+var dog = document.getElementById('dog');
+var img = document.createElement('div');
+var main = document.querySelector('body');
 
-function createMovies(moviesData){
-	var art = document.createElement('div');
-	art.classList.add('moviesData')
+getData(breed);
 
-	var img = '<img src ="img/' + moviesData.img + '" alt= ""/>';
-	var name = '<div>' + moviesData.name + '</div>';
-	var remove = '<button><img src ="img/remove.png"></button>';
-	art.innerHTML = remove + img + name;
-	return art;
-};
-
-addMovies();
-
-var searchBar = document.getElementById("input");
-var btn = document.getElementById("button")
-var home = document.getElementById("reload")
-home.style.display = "none";
-
-btn.addEventListener('click', function(e){
-    var term = searchBar.value.toLowerCase();
-    var movies = document.getElementsByClassName('moviesData');
-    var title  = document.querySelectorAll('div.moviesData > div');
-    	
-    	for(var i = 0; i < movies.length; i++){
-   			if(term === title[i].innerText.toLowerCase()){
-   			movies[i].style.display = "block";
-			}else{movies[i].style.display = "none"}
-		}
-
-	home.style.display = "block";
-	searchBar.value = "";
+dog.addEventListener('click', function(e){
+breed = dog.value;
+getData(breed)
 });
 
-function remBtn(){
-	var remove = document.querySelectorAll('div.moviesData > button');
-	var i = 0;
-	for(var i = 0; i < remove.length; i++){
-		remove[i].addEventListener('click', function(e){
-			var mov = document.getElementsByClassName('moviesData');
-			e.path[2].style.display = "none";
-			home.style.display = "block";
-		})
+setInterval(function(){
+	getData(breed)}, 5000)
+
+function getData(breed){	
+
+var newRequest = new XMLHttpRequest();
+newRequest.open('GET',"https://dog.ceo/api/breed/" + breed + "/images/random");
+newRequest.onload = function(){
+	var data = JSON.parse(newRequest.responseText).message;
+	displayData(data);
 	}
+newRequest.send();
 }
 
-remBtn();
+function displayData(data){
+	main.appendChild(img);
+	var pic = '<img src ="' + data + '"/>';
+	img.innerHTML = pic
+}
+
+
+
