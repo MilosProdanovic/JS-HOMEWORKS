@@ -77,7 +77,7 @@ btn.addEventListener('click', function(e){
     var title  = document.querySelectorAll('div.moviesData > div');
     	
     	for(var i = 0; i < movies.length; i++){
-   			if(term === title[i].innerText.toLowerCase()){
+   			if(title[i].innerText.toLowerCase().includes(term)){
    			movies[i].style.display = "block";
 			}else{movies[i].style.display = "none"}
 		}
