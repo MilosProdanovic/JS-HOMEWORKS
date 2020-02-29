@@ -81,6 +81,11 @@ function listRecipe(recipesData) {
 	results.innerHTML = recipesData.count;
 	
 	var skupRecepata = recipesData.hits;
+	
+	if(recipesData.count === 0){
+		alert("No result");
+		pag.style.display = "none";
+	}
 
 	skupRecepata.forEach(function(recipesData) {
 		
